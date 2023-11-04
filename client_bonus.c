@@ -1,6 +1,12 @@
 #include "libft/libft.h"
 #include <signal.h>
 
+void	confirm(int signo)
+{
+	if (signo == SIGUSR1)
+	ft_printf("Signal Received\n");
+}
+
 void	interpreter(int pid, char *str)
 {
 	int				shift;
@@ -33,5 +39,6 @@ int	main(int argc, char **argv)
 		return (-1);
 	}
 	pid = ft_atoi(argv[1]);
+	signal(SIGUSR1, confirm);
 	interpreter(pid, argv[2]);
 }
