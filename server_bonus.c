@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atasyure <atasyure@student.42kocaeli.com.  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/28 16:07:08 by atasyure          #+#    #+#             */
+/*   Updated: 2023/11/28 16:08:21 by atasyure         ###   ########.tr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft/libft.h"
 #include <signal.h>
 
@@ -29,19 +41,16 @@ void	signal_handler(int signo, siginfo_t *info, void *context)
 
 int	main(void)
 {
-	int	pid;
-	struct sigaction sig;
+	int					pid;
+	struct sigaction	sig;
 
 	pid = getpid();
 	ft_printf("Pid-> %d\n", pid);
-
 	sig.sa_sigaction = signal_handler;
 	//sigemptyset(&sig.sa_mask);
 	sig.sa_flags = SA_SIGINFO;
-
-    sigaction(SIGUSR1, &sig, NULL);
-    sigaction(SIGUSR2, &sig, NULL);
-
+	sigaction(SIGUSR1, &sig, NULL);
+	sigaction(SIGUSR2, &sig, NULL);
 	while (1)
 		pause();
 }

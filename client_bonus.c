@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atasyure <atasyure@student.42kocaeli.com.  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/28 16:06:58 by atasyure          #+#    #+#             */
+/*   Updated: 2023/11/28 16:07:02 by atasyure         ###   ########.tr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft/libft.h"
 #include <signal.h>
 
 void	confirm(int signo)
 {
 	if (signo == SIGUSR1)
-	ft_printf("Signal Received\n");
+		ft_printf("Signal Received\n");
 }
 
 void	interpreter(int pid, char *str)
