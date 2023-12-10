@@ -47,7 +47,6 @@ int	main(void)
 	pid = getpid();
 	ft_printf("Pid-> %d\n", pid);
 	sig.sa_sigaction = signal_handler;
-	//sigemptyset(&sig.sa_mask);
 	sig.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sig, NULL);
 	sigaction(SIGUSR2, &sig, NULL);
